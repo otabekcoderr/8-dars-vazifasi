@@ -19,18 +19,18 @@ Kitob haqida ma'lumot olish uchun tartib raqamini kiriting
 
 muhokama_text = {
     "muhokama_button": {
-        "text": "Tez orada tugmalar ishlaydi,\nNoqulaylik uchun uzur so‘raymiz ⚠️",
+        "text": "Tez orada tugmalar ishlaydi ⚠️\nNoqulaylik uchun uzur so‘raymiz 😔",
         "photo": "https://www.cloudways.com/blog/wp-content/uploads/fix-503-service-unavailable-error-in-wordpress.jpg",
     }
 }
 
 
-qidirish_bolim_tugmasi = "Tez orada tugmalar ishlaydi,\nNoqulaylik uchun uzur so‘raymiz ⚠️"
-muhokama_bolim_tugmasi = "Tez orada tugmalar ishlaydi,\nNoqulaylik uchun uzur so‘raymiz ⚠️"
-
-badiiy_kitoblar_javobi = (
-    "Sizni qiziqtirgan badiiy kitob nomini yozing,\n"
-    "Men sizga mos tavsiyalar tayyorlayman 😊"
+# 505 aservis xabari
+qidirish_bolim_tugmasi = (
+    "Tez orada tugmalar ishlaydi ⚠️\nNoqulaylik uchun uzur so‘raymiz 😔"
+)
+muhokama_bolim_tugmasi = (
+    "Tez orada tugmalar ishlaydi ⚠️\nNoqulaylik uchun uzur so‘raymiz 😔"
 )
 
 
@@ -160,6 +160,7 @@ darsliklar = {
         "text": "📐 **Matematika**\n\n"
         "📚 Matematika faniga oid darsliklar va o‘quv materiallari.\n\n"
         "💡 *Bilimni mustahkamlash uchun darslikdan foydalaning.*",
+        "photo":""
     },
     "darslik_2": {
         "text": "⚛️ **Fizika**\n\n"
@@ -229,51 +230,61 @@ it_kitoblar = {
         "text": "🐍 **Python**\n\n"
         "💻 Python dasturlash tilini o‘rganish uchun kitoblar.\n\n"
         "💡 *Sintaksisdan algoritmlargacha bo‘lgan bilimlarni mustahkamlang.*",
+        "photo": "https://altair-rd.ru/uploads/icons/python_logo_png_1124133.webp",
     },
     "it_2": {
         "text": "🌐 **HTML & CSS**\n\n"
         "💻 Web sahifalar yaratish va ularni bezashga oid kitoblar.\n\n"
         "💡 *Web dasturlashning asoslarini o‘rganing.*",
+        "photo": "https://static.tildacdn.com/tild6562-3834-4866-b162-363735653531/htmlcss.jpg",
     },
     "it_3": {
         "text": "⚡ **JavaScript**\n\n"
         "💻 Zamonaviy web dasturlash va JavaScript bo‘yicha kitoblar.\n\n"
         "💡 *Web sahifalarni interaktiv qiling.*",
+        "photo": "https://poll2know.com/img/exams_photos/1682205605.jpg",
     },
     "it_4": {
         "text": "☕ **Java**\n\n"
         "💻 Java dasturlash tili va obyektga yo‘naltirilgan dasturlash bo‘yicha kitoblar.\n\n"
         "💡 *Mustahkam dasturlash asoslarini o‘rganing.*",
+        "photo": "https://resizer.mail.ru/p/75baebcc-aab2-5e7c-83e5-ad948b1586ef/AQAKqOenBX1fuhbCQRy4JZ80eakPINL3tZdfqXZqLXgf1pRNn4capR2ijkWvY8Yu8EdJOLd96EK8DqHprHXbINDPRE0.jpg",
     },
     "it_5": {
         "text": "🔷 **C++**\n\n"
         "💻 C++ dasturlash tili, algoritmlar va ma'lumotlar tuzilmalari bo‘yicha kitoblar.\n\n"
         "💡 *Algoritmik fikrlashni rivojlantiring.*",
+        "photo": "https://media.tproger.ru/uploads/2020/02/cpp-logo-cover.png",
     },
     "it_6": {
         "text": "🔵 **C#**\n\n"
         "💻 C# dasturlash tili va .NET texnologiyalari bo‘yicha kitoblar.\n\n"
         "💡 *Zamonaviy dasturlar yaratishni o‘rganing.*",
+        "photo": "https://i.pinimg.com/originals/6e/46/e7/6e46e7dbe2bb73dacc055e5dbd85c3ad.png?nii=t",
     },
     "it_7": {
         "text": "🗄️ **SQL**\n\n"
         "💻 Ma'lumotlar bazasi va SQL so‘rovlarini o‘rganishga oid kitoblar.\n\n"
         "💡 *Ma'lumotlar bilan professional ishlashni o‘rganing.*",
+        "photo": "https://habrastorage.org/webt/hh/ac/ed/hhacedu8okr3jeoi0i2awmpptyq.jpeg",
     },
     "it_8": {
         "text": "🐘 **PHP**\n\n"
         "💻 PHP va server tomon dasturlash bo‘yicha kitoblar.\n\n"
         "💡 *Backend dasturlash asoslarini o‘rganing.*",
+        "photo": "https://codelab.pro/wp-content/uploads/2023/07/xynyljkh.jpg",
     },
     "it_9": {
         "text": "🦄 **Django**\n\n"
         "💻 Python asosidagi Django framework bo‘yicha kitoblar.\n\n"
         "💡 *Professional web ilovalar yaratishni o‘rganing.*",
+        "photo": "https://i.ytimg.com/vi/VTOJmhKYoxE/maxresdefault.jpg",
     },
     "it_10": {
         "text": "⚛️ **React**\n\n"
         "💻 React va zamonaviy frontend dasturlash bo‘yicha kitoblar.\n\n"
         "💡 *Interaktiv va zamonaviy interfeyslar yarating.*",
+        "photo": "https://intrid.ru/files/image/cache/Pages/Page155/160c366be2-1.webp",
     },
 }
 

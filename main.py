@@ -12,6 +12,8 @@ from button import (
     badiiy_kitoblar_button,
     darsliklar_button,
     it_kitoblar_button,
+    qaytish_button_badiiy,
+    darslik_sinf_button,
 )
 from contact_text import contact_text
 from about_us_text import about_text
@@ -21,7 +23,9 @@ from text import (
     badiiy_kitoblar,
     badiiy_kitob_sarlavha,
     darslik_sarlavha,
+    darsliklar,
     it_kitoblar_sarlavha,
+    it_kitoblar,
     qidirish_bolim_tugmasi,
     muhokama_bolim_tugmasi,
 )
@@ -40,16 +44,28 @@ badiiy_kitoblar_png = FSInputFile(
 )
 
 
+# Muhokama inline tugmasi uchun
 @dp.callback_query(F.data == "muhokama_button")
 async def muhokama_but(callback: CallbackQuery):
     await callback.message.bot.send_photo(
         chat_id=callback.from_user.id,
         photo=muhokama_text[callback.data]["photo"],
         caption=muhokama_text[callback.data]["text"],
+        reply_markup=qaytish_button_badiiy,
     )
     await callback.answer()
 
 
+# Qaytish inline tugmasi uchun
+@dp.callback_query(F.data == "orqaga_qaytish_badiiy")
+async def orqaga_qaytish_tugmasi(callback: CallbackQuery):
+    await callback.message.delete()
+    await callback.message.answer(reply_markup=badiiy_kitoblar_button)
+
+    await callback.answer()
+
+
+# Badiiy kitoblar inline tugmalari uchun
 @dp.callback_query(F.data.in_(badiiy_kitoblar.keys()))
 async def badiy_but(callback_badiy: CallbackQuery):
     await callback_badiy.message.bot.send_photo(
@@ -60,6 +76,43 @@ async def badiy_but(callback_badiy: CallbackQuery):
         reply_markup=inline_button,
     )
     await callback_badiy.answer()
+
+
+# It kitoblarning inline tugmasi uchun
+@dp.callback_query(F.data.in_(it_kitoblar.keys()))
+async def it_but(callback: CallbackQuery):
+    await callback.message.bot.send_photo(
+        chat_id=callback.from_user.id,
+        photo=it_kitoblar[callback.data]["photo"],
+        caption=it_kitoblar[callback.data]["text"],
+        reply_markup=inline_button,
+        parse_mode="Markdown",
+    )
+    await callback.message()
+
+
+# Darslar inline tugmasining javobi uchun
+@dp.callback_query(
+    F.data.in_(
+        [
+            "darslik_1",
+            "darslik_2",
+            "darslik_3",
+            "darslik_4",
+            "darslik_5",
+            "darslik_6",
+            "darslik_7",
+            "darslik_8",
+            "darslik_9",
+            "darslik_10",
+        ]
+    )
+)
+async def sinf_button(callback: CallbackQuery):
+    await callback.message.answer(
+        text="Kerakli sinfni tanlang:", reply_markup=darslik_sinf_button
+    )
+    await callback.answer()
 
 
 @dp.message(Command("start"))

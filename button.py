@@ -27,12 +27,24 @@ start_button = ReplyKeyboardMarkup(
     resize_keyboard=True,
 )
 
+# Muhokama tugmasi
 inline_button = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="Ⓜ️ Muhokama qilish",
+                text="💬 Muhokama qilish",
                 callback_data="muhokama_button",
+            ),
+        ]
+    ]
+)
+
+# Qaytish tugmasi
+qaytish_button_badiiy = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="🔙 Orqaga qaytish", callback_data="orqaga_qaytish_badiiy"
             ),
         ]
     ]
@@ -114,6 +126,26 @@ it_kitoblar_button = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(text="🦄 Django", callback_data="it_9"),
             InlineKeyboardButton(text="⚛️ React", callback_data="it_10"),
+        ],
+    ]
+)
+
+darslik_sinf_button = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="5-sinf", callback_data="sinf_5"),
+            InlineKeyboardButton(text="6-sinf", callback_data="sinf_6"),
+        ],
+        [
+            InlineKeyboardButton(text="7-sinf", callback_data="sinf_7"),
+            InlineKeyboardButton(text="8-sinf", callback_data="sinf_8"),
+        ],
+        [
+            InlineKeyboardButton(text="9-sinf", callback_data="sinf_9"),
+            InlineKeyboardButton(text="10-sinf", callback_data="sinf_10"),
+        ],
+        [
+            InlineKeyboardButton(text="11-sinf", callback_data="sinf_11"),
         ],
     ]
 )
