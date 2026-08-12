@@ -39,6 +39,17 @@ inline_button = InlineKeyboardMarkup(
     ]
 )
 
+kitob_muhokama_button = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text="💬 Muhokama qilish",
+                callback_data="kitob_muhokama_button",
+            ),
+        ]
+    ]
+)
+
 # Qaytish tugmasi
 qaytish_button_badiiy = InlineKeyboardMarkup(
     inline_keyboard=[

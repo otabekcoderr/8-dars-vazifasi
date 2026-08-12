@@ -25,15 +25,6 @@ muhokama_text = {
 }
 
 
-# 505 aservis xabari
-qidirish_bolim_tugmasi = (
-    "Tez orada tugmalar ishlaydi ⚠️\nNoqulaylik uchun uzur so‘raymiz 😔"
-)
-muhokama_bolim_tugmasi = (
-    "Tez orada tugmalar ishlaydi ⚠️\nNoqulaylik uchun uzur so‘raymiz 😔"
-)
-
-
 badiiy_kitoblar = {
     "badiiy_1": {
         "text": "📖 **O‘tkan kunlar**\n"
@@ -303,3 +294,7 @@ it_kitoblar_sarlavha = {"text": """💻 **IT KITOBLAR**
 10. React
 
 👇 *Kerakli IT kitobni tanlash uchun pastdagi tugmalardan birini bosing:*"""}
+
+kitob_muhokama = {
+    "text":"Bu kitob haqida muhokama qilishga tayyorman 😊\nQanday savolingiz bor?"
+    }

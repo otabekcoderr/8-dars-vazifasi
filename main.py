@@ -6,6 +6,8 @@ from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
 from aiogram.types import FSInputFile
 
+from ai_agent import ai_agent
+
 from button import (
     start_button,
     inline_button,
@@ -14,6 +16,7 @@ from button import (
     it_kitoblar_button,
     qaytish_button_badiiy,
     darslik_sinf_button,
+    kitob_muhokama_button,
 )
 from contact_text import contact_text
 from about_us_text import about_text
@@ -26,8 +29,7 @@ from text import (
     darsliklar,
     it_kitoblar_sarlavha,
     it_kitoblar,
-    qidirish_bolim_tugmasi,
-    muhokama_bolim_tugmasi,
+    kitob_muhokama,
 )
 
 TOKEN = "8750415210:AAFWvQr7-Ds5emWL6cjzoTZLyStL2UNGVMk"
@@ -73,10 +75,15 @@ async def badiy_but(callback_badiy: CallbackQuery):
         photo=badiiy_kitoblar[callback_badiy.data]["photo"],
         caption=badiiy_kitoblar[callback_badiy.data]["text"],
         parse_mode="Markdown",
-        reply_markup=inline_button,
+        reply_markup=kitob_muhokama_button,
     )
     await callback_badiy.answer()
 
+
+@dp.callback_query(F.data == "kitob_muhokama_button")
+async def kitob_muhokama_but(callback: CallbackQuery):
+    await callback.message.answer(text=kitob_muhokama["text"])
+    await callback.answer()
 
 # It kitoblarning inline tugmasi uchun
 @dp.callback_query(F.data.in_(it_kitoblar.keys()))
@@ -85,7 +92,7 @@ async def it_but(callback: CallbackQuery):
         chat_id=callback.from_user.id,
         photo=it_kitoblar[callback.data]["photo"],
         caption=it_kitoblar[callback.data]["text"],
-        reply_markup=inline_button,
+        reply_markup=kitob_muhokama_button,
         parse_mode="Markdown",
     )
     await callback.message()
@@ -172,25 +179,10 @@ async def answer_func(msg: Message):
         await msg.answer(top_kitoblar, reply_markup=inline_button)
         return
 
-    # kitob qidirish
-
-    servis_505 = "https://www.cloudways.com/blog/wp-content/uploads/fix-503-service-unavailable-error-in-wordpress.jpg"
-
-    if msg.text == "🔍 Kitob qidirish":
-        await msg.bot.send_photo(
-            chat_id=msg.from_user.id, photo=servis_505, caption=qidirish_bolim_tugmasi
-        )
-        return
-
-    if msg.text == "📚💬 Kitob muhokama":
-        await msg.bot.send_photo(
-            chat_id=msg.from_user.id, photo=servis_505, caption=muhokama_bolim_tugmasi
-        )
-        return
-
-    if msg.contact:
-        await msg.answer("Raqamingizni ulashganingizdan mamnunman 😊")
-    await msg.reply(msg.text)
+    # AI respons
+    if msg.text:
+        ai_response = await ai_agent(msg.text)
+        await msg.reply(text=ai_response, parse_mode="markdown")
 
 
 async def main():
