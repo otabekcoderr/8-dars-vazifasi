@@ -85,6 +85,7 @@ async def kitob_muhokama_but(callback: CallbackQuery):
     await callback.message.answer(text=kitob_muhokama["text"])
     await callback.answer()
 
+
 # It kitoblarning inline tugmasi uchun
 @dp.callback_query(F.data.in_(it_kitoblar.keys()))
 async def it_but(callback: CallbackQuery):
@@ -182,7 +183,8 @@ async def answer_func(msg: Message):
     # AI respons
     if msg.text:
         ai_response = await ai_agent(msg.text)
-        await msg.reply(text=ai_response, parse_mode="markdown")
+        kutish = await msg.reply(text="⏳")
+        await msg.reply(await kutish.delete(), text=ai_response, parse_mode="markdown")
 
 
 async def main():
