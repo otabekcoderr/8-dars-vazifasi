@@ -182,9 +182,10 @@ async def answer_func(msg: Message):
 
     # AI respons
     if msg.text:
-        ai_response = await ai_agent(msg.text)
         kutish = await msg.reply(text="⏳")
-        await msg.reply(await kutish.delete(), text=ai_response, parse_mode="markdown")
+        ai_response = await ai_agent(msg.text)
+        await kutish.delete()
+        await msg.reply(text=ai_response, parse_mode="markdown")
 
 
 async def main():
