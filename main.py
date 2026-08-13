@@ -180,12 +180,18 @@ async def answer_func(msg: Message):
         await msg.answer(top_kitoblar, reply_markup=inline_button)
         return
 
-    # AI respons
+
     if msg.text:
         kutish = await msg.reply(text="⏳")
-        ai_response = await ai_agent(msg.text)
-        await kutish.delete()
-        await msg.reply(text=ai_response, parse_mode="markdown")
+        try:
+            ai_response = await ai_agent(msg.text)
+            await kutish.edit_text(text=ai_response, parse_mode="markdown")
+        except Exception as e:
+            # markdown xato bo'lsa, oddiy matn bilan qayta urinib ko'rish
+            try:
+                await kutish.edit_text(text=ai_response)
+            except Exception:
+                await kutish.edit_text(text="Kechirasiz, xatolik yuz berdi 😔")
 
 
 async def main():
